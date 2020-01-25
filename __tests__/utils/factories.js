@@ -1,7 +1,7 @@
 import { factory, MongooseAdapter } from 'factory-girl';
 import faker from 'faker';
 
-import User from '../src/Schemas/UserSchema';
+import User from '../../src/Schemas/UserSchema';
 
 factory.setAdapter(new MongooseAdapter());
 

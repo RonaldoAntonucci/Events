@@ -12,7 +12,7 @@
     "dev": "nodemon src/server.js",
     "dev:debug": "nodemon --inspect src/server.js",
     "queue": "nodemon src/queue.js",
-    "test": "jest"
+    "test": "NODE_ENV=test jest --detectOpenHandles --watchAll"
   },
   "dependencies": {
     "@sentry/node": "^5.11.1",
@@ -36,6 +36,7 @@
     "jest": "^25.1.0",
     "nodemon": "^2.0.2",
     "prettier": "^1.19.1",
-    "sucrase": "^3.12.1"
+    "sucrase": "^3.12.1",
+    "supertest": "^4.0.2"
   }
 }
