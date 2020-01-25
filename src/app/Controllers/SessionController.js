@@ -9,7 +9,7 @@ export default {
 
       return res.json(data);
     } catch (err) {
-      return res.status(401).json({ error: err.message });
+      return res.status(401).json({ message: err.message });
     }
   },
 };

@@ -1,14 +1,14 @@
-import User from '../Schemas/UserSchema';
+import createUser from '../Services/CreateUserService';
 
 export default {
   async store(req, res) {
     const { name, email, password } = req.body;
 
-    if (await User.findOne({ email })) {
-      return res.status(400).json({ message: 'User Email already in use.' });
+    try {
+      const user = await createUser.run({ name, email, password });
+      return res.json({ name: user.name, email: user.email });
+    } catch (err) {
+      return res.status(400).json({ message: err.message });
     }
-
-    const user = await User.create({ name, email, password });
-    return res.json({ name: user.name, email: user.email });
   },
 };

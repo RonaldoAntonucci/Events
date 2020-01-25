@@ -44,7 +44,7 @@ describe('Session Store', () => {
       .send({ email, password });
 
     expect(response.status).toBe(401);
-    expect(response.body).toHaveProperty('error');
-    expect(response.body.error).toBe('User not found.');
+    expect(response.body).toHaveProperty('message');
+    expect(response.body.message).toBe('User not found.');
   });
 });
