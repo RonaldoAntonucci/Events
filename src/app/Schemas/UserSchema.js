@@ -10,7 +10,7 @@ const UserSchema = new Schema(
     email: {
       type: String,
       required: true,
-      unique: true,
+      createIndex: 'email',
     },
     password_hash: {
       type: String,
@@ -29,5 +29,10 @@ UserSchema.pre('save', async function(next) {
   }
   next();
 });
+
+// eslint-disable-next-line func-names
+UserSchema.methods.checkPassword = function(password) {
+  return bcrypt.compare(password, this.password_hash);
+};
 
 export default model('User', UserSchema);
