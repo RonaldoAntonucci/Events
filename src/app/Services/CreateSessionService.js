@@ -15,7 +15,7 @@ export default {
       throw new Error('Password does not match.');
     }
 
-    const { name, _id: id } = user;
+    const { name, id } = user;
 
     return {
       user: {

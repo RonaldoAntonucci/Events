@@ -16,6 +16,7 @@ describe('User Store', () => {
       .send({ ...user, passwordConfirm: user.password });
 
     expect(status).toBe(200);
+    expect(body).toHaveProperty('id');
     expect(body).toHaveProperty('name', user.name);
     expect(body).toHaveProperty('email', user.email);
     expect(body).not.toHaveProperty('password');

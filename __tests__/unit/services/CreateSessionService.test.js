@@ -18,7 +18,7 @@ describe('Create Session Service', () => {
     const id = '5e2cc2e12db45420819c438c';
 
     User.findOne.mockResolvedValue({
-      _id: id,
+      id,
       name,
       checkPassword: () => true,
     });
